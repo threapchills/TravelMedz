@@ -11,6 +11,10 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
@@ -43,15 +47,20 @@
         }
 
         .logo {
-            height: 100px;
-            width: auto;  /* Maintains aspect ratio */
-            max-height: 120px;  /* Prevents it from getting too large on mobile */
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .logo img {
+            height: 50px; /* Adjusted for a sleeker look */
+            width: auto;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 1.5rem; /* Adjusted gap */
         }
 
         .nav-links a {
@@ -86,48 +95,24 @@
         .hero {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 120px 0 80px;
+            padding: 160px 0 100px; /* Increased top padding */
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             font-weight: 700;
             margin-bottom: 1rem;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .hero-subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
             opacity: 0.9;
-            max-width: 600px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
         }
 
         .btn-primary {
@@ -143,28 +128,12 @@
             box-shadow: 0 6px 20px rgba(231, 76, 60, 0.3);
         }
 
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            padding: 15px 30px;
-            border: 2px solid white;
-            border-radius: 30px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary:hover, .btn-secondary:hover {
+        .btn-primary:hover {
             transform: translateY(-3px);
         }
 
-        .btn-secondary:hover {
-            background: white;
-            color: #667eea;
-        }
 
-        /* Main Content */
+        /* Main Content & Sections */
         .main-content {
             padding: 80px 0;
         }
@@ -180,36 +149,19 @@
             text-align: center;
         }
 
-        .section h3 {
-            font-size: 1.8rem;
-            color: #34495e;
-            margin-bottom: 1.5rem;
-        }
-
-        .intro-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            margin-bottom: 60px;
-        }
-
-        .intro-text {
+        .section p {
             font-size: 1.1rem;
             line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto 1.5rem auto; /* Center paragraph text */
+        }
+        
+        .section-intro {
+             text-align: center;
+             margin-bottom: 50px;
         }
 
-        .kit-image {
-            text-align: center;
-        }
-
-        .kit-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
+        /* Why Choose Us Section */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -221,13 +173,14 @@
             background: #fff;
             padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center; /* Center card content */
         }
 
         .feature-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
         }
 
         .feature-icon {
@@ -238,7 +191,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
+            margin: 0 auto 20px auto; /* Center icon */
             color: white;
             font-size: 24px;
         }
@@ -252,68 +205,12 @@
         .feature-card p {
             color: #7f8c8d;
             line-height: 1.6;
+            font-size: 1rem;
         }
 
-        .kit-contents {
-            background: #f8f9fa;
-            padding: 60px 0;
-            border-radius: 20px;
-            margin: 60px 0;
-        }
-
-        .contents-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .contents-image img {
-            width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        .medication-categories {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
-        }
-
-        .category {
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-        }
-
-        .category h5 {
-            color: #e74c3c;
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-
-        .category p {
-            font-size: 0.9rem;
-            color: #666;
-            line-height: 1.5;
-        }
-
-        .warning-box {
-            background: linear-gradient(135deg, #f39c12, #e67e22);
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 30px 0;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(243, 156, 18, 0.3);
-        }
-
+        /* How it Works */
         .how-it-works {
-            background: linear-gradient(135deg, #74b9ff, #0984e3);
-            color: white;
+            background: #f8f9fa;
             padding: 80px 0;
             border-radius: 20px;
             margin: 80px 0;
@@ -334,7 +231,8 @@
         .step-number {
             width: 60px;
             height: 60px;
-            background: rgba(255,255,255,0.2);
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -348,38 +246,104 @@
             margin-bottom: 15px;
             font-size: 1.2rem;
         }
-
-        .final-cta {
-            text-align: center;
-            padding: 80px 0;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            border-radius: 20px;
-            margin: 80px 0;
+        
+        .step p {
+            font-size: 1rem;
+            color: #666;
         }
 
-        .final-cta h2 {
-            color: white;
+        /* Who It's For Section (NEW) */
+        .personas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .persona-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #eee;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .persona-card:hover {
+             transform: translateY(-5px);
+             box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .persona-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #3498db;
+        }
+        
+        .persona-card p {
+            font-size: 1rem;
+            color: #666;
+            margin: 0; /* Reset margin for paragraphs inside cards */
+            max-width: 100%;
+        }
+
+        /* FAQ Section (NEW) */
+        .faq-container {
+            max-width: 800px;
+            margin: 40px auto;
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid #e0e0e0;
             margin-bottom: 20px;
         }
-
-        .final-cta p {
+        
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            text-align: left;
+            font-family: 'Segoe UI', sans-serif;
             font-size: 1.2rem;
-            margin-bottom: 40px;
-            opacity: 0.9;
-        }
-
-        .cta-buttons {
+            font-weight: 600;
+            color: #2c3e50;
+            padding: 15px 0;
+            cursor: pointer;
             display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
         }
 
+        .faq-question::after {
+            content: '+';
+            font-size: 1.8rem;
+            color: #3498db;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+        }
+        
+        .faq-answer p {
+            padding: 0 0 20px 0;
+            font-size: 1rem;
+            color: #666;
+            margin: 0;
+            max-width: 100%;
+        }
+
+        /* Footer */
         footer {
             background: #2c3e50;
             color: white;
             padding: 60px 0 30px;
+            margin-top: 80px;
         }
 
         .footer-content {
@@ -393,6 +357,13 @@
             margin-bottom: 20px;
             color: #ecf0f1;
         }
+        
+        .footer-section p {
+            font-size: 1rem;
+            color: #bdc3c7;
+            max-width: 100%;
+            margin: 0 0 10px 0;
+        }
 
         .footer-section a {
             color: #bdc3c7;
@@ -403,7 +374,7 @@
         }
 
         .footer-section a:hover {
-            color: #e74c3c;
+            color: #3498db;
         }
 
         .footer-bottom {
@@ -418,20 +389,8 @@
             .hero h1 {
                 font-size: 2.5rem;
             }
-            
-            .intro-grid,
-            .contents-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            
             .nav-links {
-                display: none;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
+                display: none; /* Simple hiding for mock-up, real site would need a burger menu */
             }
         }
     </style>
@@ -439,12 +398,14 @@
 <body>
     <header>
         <nav class="container">
-            <img src="images/logo.png" alt="Travelmedz Logo" class="logo">
+            <div class="logo">
+                <strong>TravelMedz</strong>
+            </div>
             <ul class="nav-links">
                 <li><a href="#what-is">What is Travelmedz?</a></li>
-                <li><a href="#why-choose">Why Choose Us?</a></li>
-                <li><a href="#whats-inside">What's Inside?</a></li>
-                <li><a href="#how-it-works">How it Works</a></li>
+                <li><a href="#who-is-it-for">Who It's For</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#faq">FAQ</a></li>
             </ul>
             <a href="#order" class="cta-button">Order Your Kit</a>
         </nav>
@@ -452,200 +413,168 @@
 
     <section class="hero">
         <div class="container hero-content">
-            <h1>Travelmedz: Your Health Companion on the Go</h1>
-            <p class="hero-subtitle">Whether you're exploring new cities, hiking through remote landscapes, or heading off on a work or school trip, unexpected health issues can get in the way of your plans. Travelmedz is here to help you travel smarter, safer, and with peace of mind.</p>
-            <div class="hero-buttons">
-                <a href="#order" class="btn-primary">Order Your Kit</a>
-                <a href="#learn-more" class="btn-secondary">Learn More</a>
-            </div>
+            <h1>Travel Well, Worry Less. Your Health Companion for Every Journey.</h1>
+            <p class="hero-subtitle">Whether you're crossing time zones for business or exploring remote landscapes for pleasure, Travelmedz ensures you're prepared. Our expertly curated medical kits and 24/7 telehealth service provide peace of mind, so you can focus on your trip.</p>
+            <a href="#order" class="btn-primary">Order Your Kit Today</a>
         </div>
     </section>
 
     <main class="container main-content">
+        
         <section id="what-is" class="section">
-            <div class="intro-grid">
-                <div class="intro-text">
-                    <h2>What is Travelmedz?</h2>
-                    <p>Travelmedz is a convenient travel medicine kit, paired with access to qualified doctors via an online telehealth service - wherever you are. With an expertly curated selection of trusted medications and round-the-clock virtual medical support, Travelmedz empowers you to manage common health issues swiftly and safely while travelling.</p>
-                </div>
-                <div class="kit-image">
-                    <img src="images/kit-hero.png" alt="Travelmedz Kit">
-                </div>
-            </div>
+             <div class="section-intro">
+                <h2>Your Partner in Healthy and Safe Travel</h2>
+                <p>Travelmedz is your partner in healthy and safe travel. We provide a comprehensive solution for travelers: a portable, travel-ready medical kit combined with on-demand access to qualified South African doctors through our secure telehealth platform. Manage common travel-related health concerns swiftly and safely, no matter where your journey takes you.</p>
+             </div>
         </section>
 
         <section id="why-choose" class="section">
-            <h2>Why Choose Travelmedz?</h2>
+            <div class="section-intro">
+                <h2>Why Choose Travelmedz?</h2>
+            </div>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">💊</div>
-                    <h4>Immediate access to medication</h4>
-                    <p>Our compact, elegantly designed medicine bag includes essentials to treat a range of common travel-related conditions — from pain and fevers to allergies, tummy troubles, respiratory issues, minor wounds, and more.</p>
+                    <h4>Immediate Access to a Curated Medical Kit</h4>
+                    <p>Our compact kit contains essential items to treat common travel ailments—from pain and allergies to digestive issues and minor injuries.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">👨‍⚕️</div>
-                    <h4>Talk to a doctor, anytime</h4>
-                    <p>Travelmedz provides you access to South African registered healthcare professionals via secure telehealth consultations. Whether you're feeling unwell or unsure which medication to use, help is just a call away.</p>
+                    <h4>On-Demand Medical Expertise</h4>
+                    <p>Travelmedz gives you 24/7 access to secure telehealth consultations with registered South African healthcare professionals.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">👤</div>
-                    <h4>Personalised care</h4>
-                    <p>When you sign up, you provide basic information about yourself, your trip and your health. This means our doctors can offer more tailored, informed advice - no repeating your medical history every time you need help.</p>
+                    <h4>Personalized, Informed Care</h4>
+                    <p>Our doctors use your brief medical profile to provide tailored advice for your specific health needs and travel itinerary, without repeating your history.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">✅</div>
-                    <h4>Trusted contents, professionally curated</h4>
-                    <p>Every item in the Travelmedz kit has been carefully selected by specialist medical professionals to cover the most common health conditions travellers face.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="whats-inside" class="section">
-            <div class="kit-contents">
-                <div class="container">
-                    <h2>What's Inside the Travelmedz Kit?</h2>
-                    <div class="contents-grid">
-                        <div class="contents-image">
-                            <img src="images/kit-contents.png" alt="Kit Contents">
-                        </div>
-                        <div>
-                            <p>Each kit includes a range of over-the-counter and prescription medications and supplies, including:</p>
-                            <div class="medication-categories">
-                                <div class="category">
-                                    <h5>Pain & inflammation:</h5>
-                                    <p>Panado, Voltaren GT 50, Aspirin</p>
-                                </div>
-                                <div class="category">
-                                    <h5>Cold & allergies:</h5>
-                                    <p>Iliadin nasal spray, Loratidine, Cepacol cough discs, Sudafed</p>
-                                </div>
-                                <div class="category">
-                                    <h5>Tummy troubles:</h5>
-                                    <p>Azithromycin 500mg, Buscopan, Zofran (anti-nausea), Duphalac, Imodium, Orange Rehidrat</p>
-                                </div>
-                                <div class="category">
-                                    <h5>Allergic reactions & skin irritations:</h5>
-                                    <p>Prednisone 5mg, Anthisan cream, Burnshield, Savlon</p>
-                                </div>
-                                <div class="category">
-                                    <h5>Eye care:</h5>
-                                    <p>Eye Gene drops, Chloramax ointment</p>
-                                </div>
-                                <div class="category">
-                                    <h5>Minor injuries:</h5>
-                                    <p>Dermaplast Aqua plasters, gauze, crepe bandage, transpore tape</p>
-                                </div>
-                                <div class="category">
-                                    <h5>Urinary issues:</h5>
-                                    <p>Urispas, Urizone</p>
-                                </div>
-                            </div>
-                            <div class="warning-box">
-                                <strong>Note:</strong> Antibiotics and certain medicines <strong>must</strong> only be used following consultation with a Travelmedz doctor.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Designed for Travellers</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🎒</div>
-                    <h4>Compact and lightweight</h4>
-                    <p>Our kit fits neatly into a small suitcase or backpack - no bulky packaging or clutter.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">✈️</div>
-                    <h4>Airport-ready</h4>
-                    <p>No restricted substances; designed with travel regulations in mind.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📱</div>
-                    <h4>Simple to use</h4>
-                    <p>Each item is labelled and supported by on-call medical guidance.</p>
+                    <h4>Professionally Selected for Your Peace of Mind</h4>
+                    <p>Every item in your Travelmedz kit has been carefully selected by medical experts to address the most common health issues faced by travelers.</p>
                 </div>
             </div>
         </section>
 
         <section id="how-it-works" class="how-it-works">
             <div class="container">
-                <h2>How it Works</h2>
+                <div class="section-intro">
+                    <h2 style="color: #2c3e50;">How It Works</h2>
+                    <p>With expert advice just a call away, you can use the medications in your kit safely and appropriately.</p>
+                </div>
                 <div class="steps-grid">
                     <div class="step">
                         <div class="step-number">1</div>
-                        <h4>Sign up</h4>
-                        <p>Complete your brief medical profile</p>
+                        <h4>Sign Up & Personalize</h4>
+                        <p>Complete a brief and secure medical profile on our website.</p>
                     </div>
                     <div class="step">
                         <div class="step-number">2</div>
-                        <h4>Receive your Kit</h4>
-                        <p>Delivered to your door</p>
+                        <h4>Receive Your Kit</h4>
+                        <p>Your Travelmedz kit will be delivered directly to your door.</p>
                     </div>
                     <div class="step">
                         <div class="step-number">3</div>
-                        <h4>Access Support</h4>
-                        <p>Travelmedz telehealth support any time during your travels</p>
+                        <h4>Travel with Confidence</h4>
+                        <p>Access Travelmedz telehealth support anytime you need medical advice.</p>
                     </div>
-                    <div class="step">
+                     <div class="step">
                         <div class="step-number">4</div>
                         <h4>Use Safely</h4>
-                        <p>Use medications safely with expert advice when needed</p>
+                        <p>Use medications with expert advice when needed.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="final-cta">
-            <div class="container">
-                <h2>Travel Well, Worry Less</h2>
-                <p>Wherever the journey takes you, Travelmedz helps you stay one step ahead of common health hiccups. It's smart, simple, and gives you the reassurance that help - and the right treatment - is always within reach.</p>
-                <div class="cta-buttons">
-                    <a href="#order" class="btn-primary">Order Your Kit</a>
-                    <a href="#learn-more" class="btn-secondary">Learn More</a>
+        <section id="who-is-it-for" class="section">
+            <div class="section-intro">
+                <h2>The Ideal Health Partner For Every Traveller</h2>
+            </div>
+            <div class="personas-grid">
+                <div class="persona-card">
+                    <h4>The Corporate Traveller</h4>
+                    <p>Ensure your health and productivity are protected on business trips. Handle minor illnesses without disrupting your schedule or needing to find a local clinic in an unfamiliar city.</p>
+                </div>
+                <div class="persona-card">
+                    <h4>The Adventure Seeker</h4>
+                    <p>From hiking remote trails to exploring off-the-beaten-path, travel with confidence that you're prepared for common health issues when medical facilities aren't easily accessible.</p>
+                </div>
+                <div class="persona-card">
+                    <h4>The Family on Holiday</h4>
+                    <p>Keep your family healthy and happy. Our kit and telehealth service provide quick reassurance for parents when minor health concerns arise, so you can get back to making memories.</p>
+                </div>
+                 <div class="persona-card">
+                    <h4>Students & Group Tours</h4>
+                    <p>A simple way for students and groups traveling abroad to have immediate medical support, providing peace of mind for both participants and organizers.</p>
                 </div>
             </div>
         </section>
+
+
+        <section id="faq" class="section">
+            <div class="section-intro">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">What is included in the Travelmedz kit?</button>
+                    <div class="faq-answer">
+                        <p>The Travelmedz kit provides essential medications and supplies for common travel-related health concerns, such as gastrointestinal issues, upper respiratory infections, minor wounds, and pain relief. The quantity of medicine is suitable for short-term ailments and is not an unlimited supply. The kit does not contain any opiates or controlled substances.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Can I use the prescription medication in the kit at any time?</button>
+                    <div class="faq-answer">
+                        <p>No. Any antibiotics included in the kit must only be used following a consultation with a Travelmedz healthcare provider. In fact, all medications and supplies in the kit should be used under the guidance of a Travelmedz professional to ensure your safety.</p>
+                    </div>
+                </div>
+                 <div class="faq-item">
+                    <button class="faq-question">Who are the doctors I will be speaking with?</button>
+                    <div class="faq-answer">
+                        <p>Our telehealth service connects you with healthcare providers who are registered with the Health Professions Council of South Africa (HPCSA).</p>
+                    </div>
+                </div>
+                 <div class="faq-item">
+                    <button class="faq-question">Is the kit a replacement for travel insurance or an emergency service?</button>
+                    <div class="faq-answer">
+                        <p>No. Travelmedz is not a comprehensive emergency medical service. The kit is designed to handle common, non-emergency health issues and is not a substitute for full medical care. Our doctors may refer you to an in-person clinic if they deem it clinically necessary.</p>
+                    </div>
+                </div>
+                 <div class="faq-item">
+                    <button class="faq-question">How does the telehealth consultation work?</button>
+                    <div class="faq-answer">
+                        <p>Consultations are conducted exclusively via telehealth, and you will be responsible for providing a stable internet connection and a suitable device. Users must accept the limitations of telehealth, which includes the inability of our doctors to perform a physical examination. Our service is delivered through a third-party platform, and while we strive for consistent access, we are not liable for disruptions caused by the provider.</p>
+                    </div>
+                </div>
+                 <div class="faq-item">
+                    <button class="faq-question">Can I share the kit with my family or travel companions?</button>
+                    <div class="faq-answer">
+                        <p>No. The kit is for your personal use only and must not be shared, resold, or distributed. The medical advice provided is tailored to your individual health profile, which you provide upon registration.</p>
+                    </div>
+                </div>
+                 <div class="faq-item">
+                    <button class="faq-question">What happens if my medications expire?</button>
+                    <div class="faq-answer">
+                        <p>All medications will be within their expiry date at the time we deliver the kit to you. After that point, Travelmedz is not responsible for expiring medication. You should always check the expiry dates before use and dispose of expired items responsibly.</p>
+                    </div>
+                </div>
+                 <div class="faq-item">
+                    <button class="faq-question">How is my personal information handled?</button>
+                    <div class="faq-answer">
+                        <p>Your privacy is important to us. In compliance with the Protection of Personal Information Act (POPIA), your personal information will only be shared with relevant internal personnel and our telehealth consultants for your treatment. By using the service, you consent to your information being used for treatment purposes and service improvement.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <a href="#order">Order Your Kit</a>
-                    <a href="#learn-more">Learn More</a>
-                    <a href="#contact">Contact Us</a>
-                    <a href="#terms">Terms & Conditions</a>
+                    <h4>Travelmedz</h4>
+                    <p>Travel Well, Worry Less. Your health companion for every journey.</p>
                 </div>
-                <div class="footer-section">
-                    <h4>Support</h4>
-                    <a href="#telehealth">Telehealth Service</a>
-                    <a href="#faq">FAQ</a>
-                    <a href="#shipping">Shipping Info</a>
-                    <a href="#returns">Returns Policy</a>
-                </div>
-                <div class="footer-section">
-                    <h4>About</h4>
-                    <a href="#about">About Travelmedz</a>
-                    <a href="#medical-team">Our Medical Team</a>
-                    <a href="#safety">Safety Information</a>
-                    <a href="#privacy">Privacy Policy</a>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>📧 info@travelmedz.com</p>
-                    <p>📱 +27 11 123 4567</p>
-                    <p>🏥 Registered Healthcare Service</p>
-                    <p>🇿🇦 South Africa</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Travelmedz. All rights reserved. Healthcare services provided by registered medical professionals.</p>
-            </div>
-        </div>
-    </footer>
-</body>
-</html>
+                <div class="footer
